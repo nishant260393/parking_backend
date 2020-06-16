@@ -3,10 +3,10 @@ pipeline {
 	stages {
       stage('Git Checkout') {
          steps {
-            git 'https://github.com/samridhi97/parking_backend.git'
+            git 'https://github.com/nishant260393/parking_backend.git'
 		}
 	}
-	stage('Build') {
+	/*stage('Build') {
 		steps {
 			withSonarQubeEnv('sonar') {
 				sh '/opt/maven/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true'
@@ -30,9 +30,14 @@ pipeline {
 		steps {
 			sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
 		}
+	}*/
+		
+	stage ('DB migration') {
+		steps {
+			sh '/opt/maven/bin/mvn clean flyway:migrate'
+		}
 	}
 }
 	
 
 }
-
