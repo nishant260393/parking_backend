@@ -1,0 +1,13 @@
+<plugin>
+                		<groupId>org.flywaydb</groupId>
+                		<artifactId>flyway-maven-plugin</artifactId>
+                		<version>6.4.4</version>
+                		<configuration>
+                    			<url>jdbc:mysql://13.127.133.51:3306/mediclaim</url>
+                    			<user>inguser1</user>
+					<password>H@ckath0n</password>
+					<schemas>
+						<schema>testdb</schema>	
+					</schemas>
+               			</configuration>
+ </plugin>
